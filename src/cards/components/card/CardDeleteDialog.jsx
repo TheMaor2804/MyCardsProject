@@ -1,4 +1,4 @@
-import { Dialog, DialogActions, DialogContent, DialogContentText } from '@mui/material'
+import { Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle } from '@mui/material'
 import React from 'react'
 
 export default function CardDeleteDialog({ isDialogOpen, onDelete, onChangeDialog }) {

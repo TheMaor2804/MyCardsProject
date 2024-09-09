@@ -33,6 +33,7 @@ export default function useCards() {
       );
       const data = response.data;
       setCard(data);
+      setSnack("success", "Card is here!");
     } catch (err) {
       setError(err.message);
     }
@@ -44,6 +45,7 @@ export default function useCards() {
       const response = await axios.get("https://monkfish-app-z9uza.ondigitalocean.app/bcard2/cards/my-cards");
       const data = response.data;
       setCards(data);
+      setSnack("success", "All your cards are here!");
     } catch (err) {
       setError(err.message);
     }
@@ -54,6 +56,7 @@ export default function useCards() {
     try {
       const response = await axios.post("https://monkfish-app-z9uza.ondigitalocean.app/bcard2/cards", card);
       const data = response.data;
+      setSnack("success", "Card created!");
       return data;
     } catch (err) {
       setError(err.message);
@@ -67,6 +70,7 @@ export default function useCards() {
         card
       );
       const data = response.data;
+      setSnack("success", "Card updated!");
       return data;
     } catch (err) {
       setError(err.message);
@@ -90,6 +94,7 @@ export default function useCards() {
         `https://monkfish-app-z9uza.ondigitalocean.app/bcard2/cards/${id}`
       );
       const data = response.data;
+      setSnack("success", "Card deleted!");
       return data;
     } catch (err) {
       setError(err.message);
