@@ -104,6 +104,7 @@ export default function useCards() {
     isLoading,
     getAllCards,
     getCardById,
+    getMyCards,
     handleDelete,
     handleLike,
     handleEdit,

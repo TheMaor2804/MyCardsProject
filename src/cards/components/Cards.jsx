@@ -2,9 +2,6 @@ import CardComponent from "./card/CardComponent";
 import { Container } from "@mui/material";
 
 export default function Cards({ cards, handleDelete, handleLike, handleEdit }) {
-  const handleEdit = (id) => {
-    console.log("editing card " + id);
-  };
   return (
     <Container sx={{ display: "flex", flexWrap: "wrap" }}>
       {cards.map((card) => (

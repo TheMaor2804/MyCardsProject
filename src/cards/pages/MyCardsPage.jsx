@@ -3,6 +3,8 @@ import PageHeader from "../../components/PageHeader";
 import { useCurrentUser } from "../../users/providers/UserProvider";
 import { useNavigate } from "react-router-dom";
 import ROUTES from "../../routes/routesModel";
+import useCards from "../hooks/useCards";
+import CardsFeedback from "../components/CardsFeedback";
 
 export default function MyCardsPage() {
 
@@ -20,8 +22,7 @@ export default function MyCardsPage() {
 
   return (
     <>
-      <PageHeader title={"My cards"} subtitle={"Welcome to may cards page"} />
-      Here you will find the cards you created
+      <PageHeader title={"My cards"} subtitle={"Welcome to my cards page"} />
       <CardsFeedback
         cards={cards}
         isLoading={isLoading}
