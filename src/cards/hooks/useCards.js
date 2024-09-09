@@ -39,6 +39,17 @@ export default function useCards() {
     setIsLoading(false);
   }, []);
 
+  const getMyCards = useCallback(async () => {
+    try {
+      const response = await axios.get("https://monkfish-app-z9uza.ondigitalocean.app/bcard2/cards/my-cards");
+      const data = response.data;
+      setCards(data);
+    } catch (err) {
+      setError(err.message);
+    }
+    setIsLoading(false);
+  }, []);
+
   const createCard = useCallback(async (card) => {
     try {
       const response = await axios.post("https://monkfish-app-z9uza.ondigitalocean.app/bcard2/cards", card);

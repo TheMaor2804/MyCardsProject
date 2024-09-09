@@ -1,10 +1,11 @@
 import { useCallback, useState } from "react";
 import { useCurrentUser } from "../providers/UserProvider";
-import { login } from "../services/usersApiService";
+import { login, signup } from "../services/usersApiService";
 import { getUser, removeToken, setTokenInLocalStorage } from "../services/localStorageService";
 import { useNavigate } from "react-router-dom";
 import ROUTES from "../../routes/routesModel";
 import { useSnack } from "../../providers/SnackbarProvider";
+import normalizeUser from "../helpers/normalization/normalizeUser";
 
 export default function useUsers() {
     const [isLoading, setIsLoading] = useState();
@@ -35,6 +36,15 @@ export default function useUsers() {
     }, [setUser]);
 
     const handleSignup = useCallback(async (userSignup) => {
+        try {
+            const normalizedUser = normalizeUser(userSignup);
+            await signup(normalizedUser);
+            await handleLogin({ email: userSignup.email, password: userSignup.password });
+        } catch (err) {
+            console.log(err);
+            setError(err.message);
+            setSnack("error", err.message);
+        }
     }, []);
 
     return {
