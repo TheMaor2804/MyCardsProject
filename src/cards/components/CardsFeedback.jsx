@@ -10,6 +10,7 @@ export default function CardsFeedback({
   error,
   handleDelete,
   handleLike,
+  handleEdit
 }) {
   if (isLoading) return <Spinner />;
   if (error) return <Error errorMessage={error} />;
@@ -26,6 +27,7 @@ export default function CardsFeedback({
         cards={cards}
         handleDelete={handleDelete}
         handleLike={handleLike}
+        handleEdit={handleEdit}
       />
     );
 

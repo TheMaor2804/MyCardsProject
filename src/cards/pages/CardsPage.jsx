@@ -4,7 +4,7 @@ import CardsFeedback from "../components/CardsFeedback";
 import useCards from "../hooks/useCards";
 
 export default function CardsPage() {
-  const { cards, error, isLoading, getAllCards, handleDelete, handleLike } =
+  const { cards, error, isLoading, getAllCards, handleDelete, handleLike, handleEdit } =
     useCards();
 
   useEffect(() => {
@@ -23,6 +23,7 @@ export default function CardsPage() {
         error={error}
         handleDelete={handleDelete}
         handleLike={handleLike}
+        handleEdit={handleEdit}
       />
     </div>
   );

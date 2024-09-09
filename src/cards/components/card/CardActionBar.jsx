@@ -13,7 +13,6 @@ export default function CardActionBar({
   handleDelete,
   handleEdit,
   handleLike,
-
 }) {
   const { user } = useCurrentUser();
 

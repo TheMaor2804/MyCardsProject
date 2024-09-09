@@ -3,6 +3,7 @@ import PageHeader from "../../components/PageHeader";
 
 export default function MyCardsPage() {
 
+  const { cards, error, isLoading, getMyCards, handleDelete, handleLike, handleEdit } = useCards();
 
 
   return (

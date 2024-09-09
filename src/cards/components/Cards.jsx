@@ -1,7 +1,7 @@
 import CardComponent from "./card/CardComponent";
 import { Container } from "@mui/material";
 
-export default function Cards({ cards, handleDelete, handleLike }) {
+export default function Cards({ cards, handleDelete, handleLike, handleEdit }) {
   const handleEdit = (id) => {
     console.log("editing card " + id);
   };
