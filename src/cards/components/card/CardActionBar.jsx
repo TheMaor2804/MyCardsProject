@@ -5,6 +5,7 @@ import CallIcon from "@mui/icons-material/Call";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import { Box, IconButton, CardActions } from "@mui/material";
 import { useCurrentUser } from "../../../users/providers/UserProvider";
+import CardDeleteDialog from "./CardDeleteDialog";
 
 export default function CardActionBar({
   cardId,
@@ -14,37 +15,59 @@ export default function CardActionBar({
   handleEdit,
   handleLike,
 }) {
+
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
+
+  const handleDialog = (term) => {
+    if (term === "open") return setIsDialogOpen(true);
+    setIsDialogOpen(false);
+  };
+
+  const handleDeleteCard = () => {
+    handleDialog();
+    handleDelete(cardId);
+  }
+
   const { user } = useCurrentUser();
 
   const [isLiked, setIsLiked] = useState(user ? likes.includes(user._id) : false);
 
   return (
-    <CardActions sx={{ justifyContent: "space-between" }}>
-      {user && user.isBusiness && user._id === cardUserId ?
-        <Box>
-          <IconButton onClick={() => handleDelete(cardId)}>
-            <DeleteIcon />
-          </IconButton>
-          <IconButton onClick={() => handleEdit(cardId)}>
-            <ModeEditIcon />
-          </IconButton>
-        </Box>
-        :
-        <Box />
-      }
+    <>
+      <CardActions sx={{ justifyContent: "space-between" }}>
+        {user && user.isBusiness && user._id === cardUserId ?
+          <Box>
+            <IconButton onClick={() => handleDialog("open")}>
+              <DeleteIcon />
+            </IconButton>
+            <IconButton onClick={() => handleEdit(cardId)}>
+              <ModeEditIcon />
+            </IconButton>
+          </Box>
+          :
+          <Box />
+        }
 
-      <Box>
-        <IconButton>
-          <CallIcon />
-        </IconButton>
-        {user ? <IconButton onClick={() => {
-          handleLike(cardId);
-          setIsLiked((prev) => !prev);
-        }}>
-          <FavoriteIcon sx={{ color: isLiked ? "red" : null }} />
-        </IconButton>
-          : null}
-      </Box>
-    </CardActions>
+        <Box>
+          <IconButton>
+            <CallIcon />
+          </IconButton>
+          {user ? <IconButton onClick={() => {
+            handleLike(cardId);
+            setIsLiked((prev) => !prev);
+          }}>
+            <FavoriteIcon sx={{ color: isLiked ? "red" : null }} />
+          </IconButton>
+            : null}
+        </Box>
+
+      </CardActions>
+      <CardDeleteDialog
+        isDialogOpen={isDialogOpen}
+        onDelete={handleDeleteCard}
+        onChangeDialog={() => handleDialog()}
+      />
+    </>
+
   );
 }

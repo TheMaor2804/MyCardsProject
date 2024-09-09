@@ -1,7 +1,7 @@
 import { Dialog, DialogActions, DialogContent, DialogContentText } from '@mui/material'
 import React from 'react'
 
-export default function ({ isDialogOpen, onDelete, onChangeDialog }) {
+export default function CardDeleteDialog({ isDialogOpen, onDelete, onChangeDialog }) {
     return (
         <Dialog
             open={isDialogOpen}
