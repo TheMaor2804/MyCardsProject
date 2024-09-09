@@ -23,6 +23,7 @@ export default function Router() {
       <Route path={ROUTES.SIGNUP} element={<SignupPage />} />
       <Route path={ROUTES.CARD_INFO + "/:id"} element={<CardDetailsPage />} />
       <Route path={ROUTES.SANDBOX} element={<SandboxPage />} />
+      <Route path={ROUTES.EDIT_CARD + "/:id"} element={<EditCardPage />} />
 
       <Route path="*" element={<ErrorPage />} />
     </Routes>
