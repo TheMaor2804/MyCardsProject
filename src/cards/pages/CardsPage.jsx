@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import PageHeader from "../../components/PageHeader";
 import CardsFeedback from "../components/CardsFeedback";
 import useCards from "../hooks/useCards";
+import CreateNewCardButton from "../components/card/CreateNewCardButton";
 
 export default function CardsPage() {
   const { cards, error, isLoading, getAllCards, handleDelete, handleLike, handleEdit } =
@@ -25,6 +26,7 @@ export default function CardsPage() {
         handleLike={handleLike}
         handleEdit={handleEdit}
       />
+      <CreateNewCardButton />
     </div>
   );
 }

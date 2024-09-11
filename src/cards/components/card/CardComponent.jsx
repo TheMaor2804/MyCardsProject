@@ -16,7 +16,7 @@ export default function CardComponent({
   const navigate = useNavigate();
 
   return (
-    <Card sx={{ width: 250, m: 2 }}>
+    <Card sx={{ display: "flex", flexDirection: "column", width: 250, m: 2 }}>
       <CardActionArea
         onClick={() => navigate(ROUTES.CARD_INFO + "/" + card._id)}
       >

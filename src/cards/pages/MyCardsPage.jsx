@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import ROUTES from "../../routes/routesModel";
 import useCards from "../hooks/useCards";
 import CardsFeedback from "../components/CardsFeedback";
+import CreateNewCardButton from "../components/card/CreateNewCardButton";
 
 export default function MyCardsPage() {
 
@@ -15,7 +16,7 @@ export default function MyCardsPage() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (!user || !user.isBusiness) navigate(ROUTES.CARDS);
+    if (!user || !user.isBusiness || user.isAdmin) navigate(ROUTES.CARDS);
     else getMyCards();
   }, [user]);
 
@@ -31,6 +32,7 @@ export default function MyCardsPage() {
         handleLike={handleLike}
         handleEdit={handleEdit}
       />
+      <CreateNewCardButton />
     </>
   );
 }

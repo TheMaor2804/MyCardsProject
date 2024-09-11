@@ -38,8 +38,8 @@ export default function CardActionBar({
 
   return (
     <>
-      <CardActions sx={{ justifyContent: "space-between" }}>
-        {user && user.isBusiness && user._id === cardUserId ?
+      <CardActions sx={{ justifyContent: "space-between", marginTop: "auto" }}>
+        {user && ((user.isBusiness && user._id === cardUserId) || user.isAdmin) ?
           <Box>
             <IconButton onClick={() => handleDialog("open")}>
               <DeleteIcon />
