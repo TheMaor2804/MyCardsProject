@@ -16,10 +16,17 @@ export default function MyCardsPage() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (!user || !user.isBusiness || user.isAdmin) navigate(ROUTES.CARDS);
-    else getMyCards();
+    if (user && (user.isBusiness || user.isAdmin)) {
+      getMyCards();
+    }
+    else navigate(ROUTES.CARDS);
   }, [user]);
 
+
+  const onDelete = async (id) => {
+    await handleDelete(id);
+    getMyCards();
+  };
 
   return (
     <>
@@ -28,7 +35,7 @@ export default function MyCardsPage() {
         cards={cards}
         isLoading={isLoading}
         error={error}
-        handleDelete={handleDelete}
+        handleDelete={onDelete}
         handleLike={handleLike}
         handleEdit={handleEdit}
       />
