@@ -9,6 +9,7 @@ import NotLogged from "./NotLogged";
 import NavBarItem from "../../../routes/components/NavBarItem";
 import ROUTES from "../../../routes/routesModel";
 import useUsers from "../../../users/hooks/useUsers";
+import SearchBar from "./SearchBar";
 
 export default function RightNavbar() {
   const { user } = useCurrentUser();
@@ -24,6 +25,8 @@ export default function RightNavbar() {
         alignItems: "center",
       }}
     >
+      <SearchBar />
+
       <IconButton sx={{ ml: 1 }} onClick={toggleDarkMode}>
         {isDark ? <LightModeIcon /> : <DarkModeIcon />}
       </IconButton>
