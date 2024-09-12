@@ -30,7 +30,6 @@ export default function useForm(initialForm, schema, handleSubmit) {
           return obj;
         });
       }
-
       setData((prev) => ({ ...prev, [name]: value }));
     },
     [validateProperty]

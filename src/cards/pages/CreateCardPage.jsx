@@ -21,8 +21,8 @@ export default function CreateCardPage() {
     const { data, errors, onSubmit, handleReset, handleChange, validateForm } = useForm(
         initialCardForm,
         cardSchema,
-        () => {
-            createCard({
+        async () => {
+            await createCard({
                 ...normalizeCard(data),
             });
             navigate(ROUTES.MY_CARDS);
@@ -30,7 +30,7 @@ export default function CreateCardPage() {
     );
 
     useEffect(() => {
-        if (!user || !user.isBusiness && !user.isAdmin) navigate(ROUTES.CARDS);
+        if (!user || !user.isBusiness && !user.isAdmin) navigate(ROUTES.ROOT);
     }, [user]);
 
     return (
