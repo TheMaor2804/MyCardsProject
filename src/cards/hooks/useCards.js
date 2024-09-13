@@ -2,6 +2,7 @@ import { useCallback, useState } from "react";
 import { useSnack } from "../../providers/SnackbarProvider";
 import axios from "axios";
 import useAxios from "../../hooks/useAxios";
+import { useCurrentUser } from "../../users/providers/UserProvider";
 
 export default function useCards() {
   const [cards, setCards] = useState([]);
@@ -9,13 +10,15 @@ export default function useCards() {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState();
 
+  const { user } = useCurrentUser();
+
   const setSnack = useSnack();
 
   useAxios();
 
   const getAllCards = useCallback(async () => {
     try {
-      let response = await axios.get(
+      const response = await axios.get(
         "https://monkfish-app-z9uza.ondigitalocean.app/bcard2/cards"
       );
       setCards(response.data);
@@ -34,6 +37,8 @@ export default function useCards() {
       const data = response.data;
       setCard(data);
       setSnack("success", "Card is here!");
+      setIsLoading(false);
+      return data;
     } catch (err) {
       setError(err.message);
     }
@@ -51,6 +56,20 @@ export default function useCards() {
     }
     setIsLoading(false);
   }, []);
+
+  const getFavCards = useCallback(async () => {
+    try {
+      const response = await axios.get(
+        "https://monkfish-app-z9uza.ondigitalocean.app/bcard2/cards"
+      );
+      const favCards = response.data.filter((card) => card.likes.includes(user._id));
+      setCards(favCards);
+      setSnack("success", "All your favorite cards are here!");
+    } catch (err) {
+      setError(err.message);
+    }
+    setIsLoading(false);
+  }, [user]);
 
   const createCard = useCallback(async (card) => {
     try {
@@ -107,9 +126,11 @@ export default function useCards() {
     card,
     error,
     isLoading,
+    setIsLoading,
     getAllCards,
     getCardById,
     getMyCards,
+    getFavCards,
     handleDelete,
     handleLike,
     handleEdit,

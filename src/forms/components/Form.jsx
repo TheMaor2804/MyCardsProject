@@ -17,6 +17,7 @@ const Form = ({
   styles = {},
   children,
 }) => {
+
   const navigate = useNavigate();
 
   return (

@@ -14,7 +14,6 @@ export default function CardActionBar({
   cardUserId,
   likes,
   handleDelete,
-  handleEdit,
   handleLike,
 }) {
 

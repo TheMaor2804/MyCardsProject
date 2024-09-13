@@ -6,6 +6,8 @@ import ROUTES from "../../routes/routesModel";
 import useCards from "../hooks/useCards";
 import CardsFeedback from "../components/CardsFeedback";
 import CreateNewCardButton from "../components/card/CreateNewCardButton";
+import Spinner from "../../components/Spinner";
+import Error from "../../components/Error";
 
 export default function MyCardsPage() {
 
@@ -23,10 +25,13 @@ export default function MyCardsPage() {
   }, [user]);
 
 
-  const onDelete = async (id) => {
-    await handleDelete(id);
+  const onDelete = (id) => {
+    handleDelete(id);
     getMyCards();
   };
+
+  if (isLoading) return <Spinner />;
+  if (error) return <Error errorMessage={error} />;
 
   return (
     <>
