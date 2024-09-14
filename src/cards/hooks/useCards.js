@@ -1,20 +1,38 @@
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useSnack } from "../../providers/SnackbarProvider";
 import axios from "axios";
 import useAxios from "../../hooks/useAxios";
 import { useCurrentUser } from "../../users/providers/UserProvider";
+import { useSearchParams } from "react-router-dom";
 
 export default function useCards() {
-  const [cards, setCards] = useState([]);
+  const [cards, setCards] = useState();
   const [card, setCard] = useState();
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState();
+  const [query, setQuery] = useState("");
+  const [filteredCards, setFilteredCards] = useState();
+  const [searchParams] = useSearchParams();
 
   const { user } = useCurrentUser();
 
   const setSnack = useSnack();
 
   useAxios();
+
+  useEffect(() => {
+    setQuery(searchParams.get("q") ?? "");
+  }, [searchParams]);
+
+  useEffect(() => {
+    if (cards) {
+      setFilteredCards(
+        cards.filter((card) =>
+          card.title.includes(query) || String(card.bizNumber).includes(query)
+        )
+      );
+    }
+  }, [cards, query]);
 
   const getAllCards = useCallback(async () => {
     try {
@@ -126,6 +144,7 @@ export default function useCards() {
     card,
     error,
     isLoading,
+    filteredCards,
     setIsLoading,
     getAllCards,
     getCardById,

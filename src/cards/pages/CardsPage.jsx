@@ -5,7 +5,7 @@ import useCards from "../hooks/useCards";
 import CreateNewCardButton from "../components/card/CreateNewCardButton";
 
 export default function CardsPage() {
-  const { cards, error, isLoading, getAllCards, handleDelete, handleLike, handleEdit } =
+  const { cards, error, isLoading, filteredCards, getAllCards, handleDelete, handleLike, handleEdit } =
     useCards();
 
   useEffect(() => {
@@ -19,7 +19,7 @@ export default function CardsPage() {
         subtitle="On this page you can find all bussines cards from all categories"
       />
       <CardsFeedback
-        cards={cards}
+        cards={filteredCards}
         isLoading={isLoading}
         error={error}
         handleDelete={handleDelete}

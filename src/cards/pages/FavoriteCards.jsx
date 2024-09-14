@@ -11,7 +11,7 @@ import CreateNewCardButton from "../components/card/CreateNewCardButton";
 
 export default function FavoriteCards() {
 
-  const { cards, error, isLoading, getFavCards, handleDelete, handleLike, handleEdit } = useCards();
+  const { cards, error, isLoading, filteredCards, getFavCards, handleDelete, handleLike, handleEdit } = useCards();
 
   const { user } = useCurrentUser();
 
@@ -35,7 +35,7 @@ export default function FavoriteCards() {
         subtitle={"Welcome to favorite cards page"}
       />
       <CardsFeedback
-        cards={cards}
+        cards={filteredCards}
         isLoading={isLoading}
         error={error}
         handleDelete={handleDelete}

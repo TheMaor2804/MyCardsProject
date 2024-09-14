@@ -11,7 +11,7 @@ import Error from "../../components/Error";
 
 export default function MyCardsPage() {
 
-  const { cards, error, isLoading, getMyCards, handleDelete, handleLike, handleEdit } = useCards();
+  const { cards, error, isLoading, filteredCards, getMyCards, handleDelete, handleLike, handleEdit } = useCards();
 
   const { user } = useCurrentUser();
 
@@ -37,7 +37,7 @@ export default function MyCardsPage() {
     <>
       <PageHeader title={"My cards"} subtitle={"Welcome to my cards page"} />
       <CardsFeedback
-        cards={cards}
+        cards={filteredCards}
         isLoading={isLoading}
         error={error}
         handleDelete={onDelete}
