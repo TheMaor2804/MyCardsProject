@@ -18,31 +18,23 @@ export default function AboutPage() {
         }}
       >
         <Container sx={{ flex: 1, mr: 2 }}>
-          <Typography variant="h6">About Page</Typography>
           <Typography variant="body1" paragraph>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus
-            quas, similique quos ducimus quaerat aperiam quibusdam recusandae
-            voluptas consequuntur quam qui nam reiciendis porro? Assumenda
-            facere esse incidunt sit illum vel qui totam praesentium corrupti.
-            Ducimus asperiores maxime laudantium corporis nisi eligendi magni id
-            sequi! Aliquam cupiditate, quas maxime deleniti sunt accusamus amet
-            aut molestias, beatae nulla sequi eaque reiciendis id, iste nobis.
-            Aliquid, blanditiis repellat molestias modi necessitatibus cum non
-            dolor enim ullam minima recusandae deserunt! Quia odit, tempora
-            dolore fuga assumenda atque iusto. Neque cum mollitia officiis
-            officia sit asperiores obcaecati voluptatem reprehenderit, eos
-            consequatur, sint vel nulla? Neque consequatur error unde enim
-            consequuntur dolorum ea quasi sint ad vel dicta corporis atque
-            provident beatae sunt cupiditate numquam nisi voluptatum aspernatur
-            adipisci, et ullam recusandae? Quas pariatur modi ratione
-            laudantium. Iusto, tenetur. Quae harum eius distinctio? Molestiae
-            voluptatibus iste, minima cum fugiat numquam id recusandae nostrum
-            eaque illo saepe quasi tempore facere iusto at. Necessitatibus nam a
-            commodi voluptatum odio aliquam vero dolores ipsum saepe, eum est
-            sit reprehenderit cumque id distinctio optio? Corporis tempora
-            eveniet ex expedita dolorum dolor dignissimos, magni rerum eligendi
-            ea laborum maxime vel reprehenderit voluptas assumenda odio! Sunt
-            doloremque at accusantium aspernatur eaque!
+            Welcome to our Business Cards Application! This platform allows users to create, view, and manage business cards with ease. Whether you are a regular user or a business user, our application offers a range of features to enhance your experience.
+          </Typography>
+          <Typography variant="body1" paragraph>
+            As a regular user, you can browse through a variety of business cards, like your favorite ones, and view them in your favorites section. Our search functionality makes it easy to find specific cards based on your interests.
+          </Typography>
+          <Typography variant="body1" paragraph>
+            Business users have additional privileges. You can create your own business cards, manage them, and showcase your business information to other users. This is a great way to promote your business and connect with potential clients.
+          </Typography>
+          <Typography variant="body1" paragraph>
+            Our application supports both dark mode and light mode, allowing you to choose the theme that best suits your preference. The user interface is designed to be intuitive and user-friendly, ensuring a seamless experience.
+          </Typography>
+          <Typography variant="body1" paragraph>
+            We use a robust API to handle all requests to our server, ensuring that your data is securely managed. Whether you are creating a new card, registering as a user, or retrieving data, our API ensures fast and reliable performance.
+          </Typography>
+          <Typography variant="body1" paragraph>
+            Thank you for choosing our Business Cards Application. We are committed to providing you with the best experience possible. If you have any questions or feedback, please do not hesitate to contact us.
           </Typography>
         </Container>
         <Container sx={{ flex: 1 }}>
