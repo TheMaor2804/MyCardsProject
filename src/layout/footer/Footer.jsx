@@ -19,6 +19,12 @@ export default function Footer() {
       sx={{ position: "sticky", bottom: 0, left: 0, right: 0 }}
     >
       <BottomNavigation showLabels>
+
+        <BottomNavigationAction
+          label="Cards"
+          icon={<StyleIcon />}
+          onClick={() => navigate(ROUTES.CARDS)}
+        />
         <BottomNavigationAction
           label="About"
           icon={<InfoIcon />}
@@ -36,11 +42,6 @@ export default function Footer() {
           onClick={() => navigate(ROUTES.MY_CARDS)}
         /> : null}
 
-        <BottomNavigationAction
-          label="Cards"
-          icon={<StyleIcon />}
-          onClick={() => navigate(ROUTES.CARDS)}
-        />
       </BottomNavigation>
     </Paper>
   );
