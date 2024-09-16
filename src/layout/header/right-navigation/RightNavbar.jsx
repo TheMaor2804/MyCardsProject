@@ -16,8 +16,6 @@ export default function RightNavbar() {
   const { handleLogout } = useUsers();
   const { isDark, toggleDarkMode } = useTheme();
 
-
-
   return (
     <Box
       sx={{
