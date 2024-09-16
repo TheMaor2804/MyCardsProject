@@ -2,7 +2,6 @@ import { AppBar, Toolbar } from "@mui/material";
 import React from "react";
 import LeftNavBar from "./left-navigation/LeftNavBar";
 import RightNavbar from "./right-navigation/RightNavbar";
-import SearchBar from "./right-navigation/SearchBar";
 
 export default function Header() {
   return (
