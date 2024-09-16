@@ -9,7 +9,7 @@ export default function CreateNewCardButton() {
     const { user } = useCurrentUser();
     const navigate = useNavigate();
 
-    if (!(user && (user.isBusiness || user.isAdmin))) return null;
+    if (!user || (user && !user.isBusiness)) return null;
     return (
         <Fab
             color="primary"

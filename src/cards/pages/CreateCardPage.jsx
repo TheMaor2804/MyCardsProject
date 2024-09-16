@@ -30,7 +30,7 @@ export default function CreateCardPage() {
     );
 
     useEffect(() => {
-        if (!user || !user.isBusiness && !user.isAdmin) navigate(ROUTES.ROOT);
+        if (!user || (user && !user.isBusiness)) navigate(ROUTES.ROOT);
     }, [user]);
 
     return (
