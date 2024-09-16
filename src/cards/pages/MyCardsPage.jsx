@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useCallback, useEffect } from "react";
 import PageHeader from "../../components/PageHeader";
 import { useCurrentUser } from "../../users/providers/UserProvider";
 import { useNavigate } from "react-router-dom";
@@ -6,12 +6,10 @@ import ROUTES from "../../routes/routesModel";
 import useCards from "../hooks/useCards";
 import CardsFeedback from "../components/CardsFeedback";
 import CreateNewCardButton from "../components/card/CreateNewCardButton";
-import Spinner from "../../components/Spinner";
-import Error from "../../components/Error";
 
 export default function MyCardsPage() {
 
-  const { cards, error, isLoading, filteredCards, getMyCards, handleDelete, handleLike, handleEdit } = useCards();
+  const { error, isLoading, filteredCards, getMyCards, handleDelete, handleLike, handleEdit } = useCards();
 
   const { user } = useCurrentUser();
 
@@ -25,16 +23,13 @@ export default function MyCardsPage() {
   }, [user]);
 
 
-  const onDelete = (id) => {
+  const onDelete = useCallback(async (id) => {
     handleDelete(id);
     getMyCards();
-  };
-
-  if (isLoading) return <Spinner />;
-  if (error) return <Error errorMessage={error} />;
+  }, [handleDelete, getMyCards]);
 
   return (
-    <>
+    <div>
       <PageHeader title={"My cards"} subtitle={"Welcome to my cards page"} />
       <CardsFeedback
         cards={filteredCards}
@@ -45,6 +40,6 @@ export default function MyCardsPage() {
         handleEdit={handleEdit}
       />
       <CreateNewCardButton />
-    </>
+    </div>
   );
 }

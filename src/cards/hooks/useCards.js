@@ -25,6 +25,7 @@ export default function useCards() {
   }, [searchParams]);
 
   useEffect(() => {
+    setIsLoading(true);
     if (cards) {
       setFilteredCards(
         cards.filter((card) =>
@@ -32,9 +33,11 @@ export default function useCards() {
         )
       );
     }
+    setIsLoading(false);
   }, [cards, query]);
 
   const getAllCards = useCallback(async () => {
+    setIsLoading(true);
     try {
       const response = await axios.get(
         "https://monkfish-app-z9uza.ondigitalocean.app/bcard2/cards"
@@ -48,6 +51,7 @@ export default function useCards() {
   }, []);
 
   const getCardById = useCallback(async (id) => {
+    setIsLoading(true);
     try {
       const response = await axios.get(
         `https://monkfish-app-z9uza.ondigitalocean.app/bcard2/cards/${id}`
@@ -64,6 +68,7 @@ export default function useCards() {
   }, []);
 
   const getMyCards = useCallback(async () => {
+    setIsLoading(true);
     try {
       const response = await axios.get("https://monkfish-app-z9uza.ondigitalocean.app/bcard2/cards/my-cards");
       const data = response.data;
@@ -76,6 +81,7 @@ export default function useCards() {
   }, []);
 
   const getFavCards = useCallback(async () => {
+    setIsLoading(true);
     try {
       const response = await axios.get(
         "https://monkfish-app-z9uza.ondigitalocean.app/bcard2/cards"

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useCallback, useEffect } from "react";
 import PageHeader from "../../components/PageHeader";
 import useCards from "../hooks/useCards";
 import { useCurrentUser } from "../../users/providers/UserProvider";
@@ -11,7 +11,7 @@ import CreateNewCardButton from "../components/card/CreateNewCardButton";
 
 export default function FavoriteCards() {
 
-  const { cards, error, isLoading, filteredCards, getFavCards, handleDelete, handleLike, handleEdit } = useCards();
+  const { error, isLoading, filteredCards, getFavCards, handleDelete, handleLike, handleEdit } = useCards();
 
   const { user } = useCurrentUser();
 
@@ -25,8 +25,11 @@ export default function FavoriteCards() {
     getFavCards();
   }, [getFavCards]);
 
-  if (isLoading) return <Spinner />;
-  if (error) return <Error errorMessage={error} />;
+  const onDelete = useCallback(async (id) => {
+    await handleDelete(id);
+    getFavCards();
+  }, [handleDelete, getFavCards]);
+
 
   return (
     <>
@@ -38,7 +41,7 @@ export default function FavoriteCards() {
         cards={filteredCards}
         isLoading={isLoading}
         error={error}
-        handleDelete={handleDelete}
+        handleDelete={onDelete}
         handleLike={handleLike}
         handleEdit={handleEdit}
       />

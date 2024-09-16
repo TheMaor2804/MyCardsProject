@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useCallback, useState } from "react";
 import DeleteIcon from "@mui/icons-material/Delete";
 import ModeEditIcon from "@mui/icons-material/ModeEdit";
 import CallIcon from "@mui/icons-material/Call";
@@ -27,7 +27,7 @@ export default function CardActionBar({
   const handleDeleteCard = () => {
     handleDialog();
     handleDelete(cardId);
-  }
+  };
 
   const { user } = useCurrentUser();
 

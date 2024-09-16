@@ -1,16 +1,21 @@
-import React, { useEffect } from "react";
+import React, { useCallback, useEffect } from "react";
 import PageHeader from "../../components/PageHeader";
 import CardsFeedback from "../components/CardsFeedback";
 import useCards from "../hooks/useCards";
 import CreateNewCardButton from "../components/card/CreateNewCardButton";
 
 export default function CardsPage() {
-  const { cards, error, isLoading, filteredCards, getAllCards, handleDelete, handleLike, handleEdit } =
+  const { error, isLoading, filteredCards, getAllCards, handleDelete, handleLike, handleEdit } =
     useCards();
 
   useEffect(() => {
     getAllCards();
   }, []);
+
+  const onDelete = useCallback(async (id) => {
+    await handleDelete(id);
+    getAllCards();
+  }, [handleDelete, getAllCards]);
 
   return (
     <div>
@@ -22,7 +27,7 @@ export default function CardsPage() {
         cards={filteredCards}
         isLoading={isLoading}
         error={error}
-        handleDelete={handleDelete}
+        handleDelete={onDelete}
         handleLike={handleLike}
         handleEdit={handleEdit}
       />
