@@ -16,10 +16,9 @@ export default function Footer() {
   return (
     <Paper
       elevation={3}
-      sx={{ position: "sticky", bottom: 0, left: 0, right: 0 }}
+      sx={{ position: "sticky", bottom: 0, left: 0, right: 0, zIndex: 1 }}
     >
       <BottomNavigation showLabels>
-
         <BottomNavigationAction
           label="Cards"
           icon={<StyleIcon />}

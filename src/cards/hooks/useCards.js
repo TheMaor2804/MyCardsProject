@@ -20,6 +20,8 @@ export default function useCards() {
 
   useAxios();
 
+  const API_URL = "https://monkfish-app-z9uza.ondigitalocean.app/bcard2/cards";
+
   useEffect(() => {
     setQuery(searchParams.get("q") ?? "");
   }, [searchParams]);
@@ -39,9 +41,7 @@ export default function useCards() {
   const getAllCards = useCallback(async () => {
     setIsLoading(true);
     try {
-      const response = await axios.get(
-        "https://monkfish-app-z9uza.ondigitalocean.app/bcard2/cards"
-      );
+      const response = await axios.get(API_URL);
       setCards(response.data);
       setSnack("success", "All cards are here!");
     } catch (err) {
@@ -54,7 +54,7 @@ export default function useCards() {
     setIsLoading(true);
     try {
       const response = await axios.get(
-        `https://monkfish-app-z9uza.ondigitalocean.app/bcard2/cards/${id}`
+        `${API_URL}/${id}`
       );
       const data = response.data;
       setCard(data);
@@ -70,7 +70,7 @@ export default function useCards() {
   const getMyCards = useCallback(async () => {
     setIsLoading(true);
     try {
-      const response = await axios.get("https://monkfish-app-z9uza.ondigitalocean.app/bcard2/cards/my-cards");
+      const response = await axios.get(API_URL + "/my-cards");
       const data = response.data;
       setCards(data);
       setSnack("success", "All your cards are here!");
@@ -83,9 +83,7 @@ export default function useCards() {
   const getFavCards = useCallback(async () => {
     setIsLoading(true);
     try {
-      const response = await axios.get(
-        "https://monkfish-app-z9uza.ondigitalocean.app/bcard2/cards"
-      );
+      const response = await axios.get(API_URL);
       const favCards = response.data.filter((card) => card.likes.includes(user._id));
       setCards(favCards);
       setSnack("success", "All your favorite cards are here!");
@@ -97,7 +95,7 @@ export default function useCards() {
 
   const createCard = useCallback(async (card) => {
     try {
-      const response = await axios.post("https://monkfish-app-z9uza.ondigitalocean.app/bcard2/cards", card);
+      const response = await axios.post(API_URL + "/", card);
       const data = response.data;
       setSnack("success", "Card created!");
       return data;
@@ -109,7 +107,7 @@ export default function useCards() {
   const handleEdit = useCallback(async (id, card) => {
     try {
       const response = await axios.put(
-        `https://monkfish-app-z9uza.ondigitalocean.app/bcard2/cards/${id}`,
+        `${API_URL}/${id}`,
         card
       );
       const data = response.data;
@@ -123,7 +121,7 @@ export default function useCards() {
   const handleLike = useCallback(async (id) => {
     try {
       const response = await axios.patch(
-        `https://monkfish-app-z9uza.ondigitalocean.app/bcard2/cards/${id}`);
+        `${API_URL}/${id}`);
       const data = response.data;
       return data;
     } catch (err) {
@@ -134,7 +132,7 @@ export default function useCards() {
   const handleDelete = useCallback(async (id) => {
     try {
       const response = await axios.delete(
-        `https://monkfish-app-z9uza.ondigitalocean.app/bcard2/cards/${id}`
+        `${API_URL}/${id}`
       );
       const data = response.data;
       setSnack("success", "Card deleted!");

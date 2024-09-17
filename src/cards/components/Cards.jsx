@@ -3,7 +3,7 @@ import { Container } from "@mui/material";
 
 export default function Cards({ cards, handleDelete, handleLike, handleEdit }) {
   return (
-    <Container sx={{ display: "flex", flexWrap: "wrap" }}>
+    <Container maxWidth={"xl"} sx={{ display: "flex", flexWrap: "wrap" }}>
       {cards.map((card) => (
         <CardComponent
           card={card}

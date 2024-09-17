@@ -1,8 +1,39 @@
-# React + Vite
+Introduction
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+    Project Name: Business Cards
+    Brief Description: A platform for displaying, liking, and creating business cards.
 
-Currently, two official plugins are available:
+Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+    Business Card Display: View business cards from various categories.
+    Liking Business Cards: Save favorite cards for future reference.
+    Creating Business Cards: (For business users only) Create and customize personalized business cards.
+
+Technologies
+
+    Frontend: React, Material UI, React Router
+    Build Tool: Vite
+    Validation: Joi
+    API: Axios
+    JWT: jwt-decode
+
+Installation and Setup
+
+    Clone the repository: git clone [Your Repository URL]
+    Install dependencies: npm install
+    Start the development server: npm run dev
+
+Usage
+
+    Guest Users:
+        View business cards
+        Like business cards
+        View liked business cards
+    Logged-In Users:
+        All guest user features
+        (Business users only) Create and manage business cards
+        View created business cards
+
+Contributing
+
+    Currently not accepting contributions.
