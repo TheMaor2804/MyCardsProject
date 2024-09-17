@@ -19,18 +19,20 @@ Technologies
 
 Installation and Setup
 
-    Clone the repository: git clone [Your Repository URL]
+    Clone the repository: git clone https://github.com/TheMaor2804/MyCardsProject
     Install dependencies: npm install
     Start the development server: npm run dev
 
 Usage
 
-    Guest Users:
+    Unregistered Users:
         View business cards
+    Registered Users:
+        All the above user features
         Like business cards
         View liked business cards
-    Logged-In Users:
-        All guest user features
+    Business Users:
+        All the above user features
         (Business users only) Create and manage business cards
         View created business cards
 
