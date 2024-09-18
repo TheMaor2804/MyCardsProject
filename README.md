@@ -33,7 +33,7 @@ Usage
         View liked business cards
     Business Users:
         All the above user features
-        (Business users only) Create and manage business cards
+        Create and manage business cards
         View created business cards
 
 Contributing
