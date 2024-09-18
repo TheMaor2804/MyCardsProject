@@ -10,11 +10,15 @@ export default function LeftNavBar() {
   const { user } = useCurrentUser();
 
   return (
-    <Box>
+    <Box
+      sx={{ display: "flex", alignItems: "center" }}
+    >
       <LogoIcon />
       <Box
         sx={{
           display: { xs: "none", md: "inline-flex" },
+          alignItems: "center",
+
         }}
       >
 

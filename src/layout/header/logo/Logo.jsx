@@ -10,7 +10,7 @@ export default function Logo() {
         <Typography
           variant="h4"
           sx={{
-            marginRight: 2,
+            mx: 2,
             fontFamily: "fantasy",
             display: { xs: "none", md: "inline-flex" },
           }}
