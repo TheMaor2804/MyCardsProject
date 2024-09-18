@@ -3,6 +3,7 @@ import Spinner from "../../components/Spinner";
 import Error from "../../components/Error";
 import { Container, Typography } from "@mui/material";
 import Cards from "./Cards";
+import { useTheme } from "../../providers/CustomThemeProvider";
 
 export default function CardsFeedback({
   isLoading,
@@ -12,12 +13,15 @@ export default function CardsFeedback({
   handleLike,
   handleEdit
 }) {
+
+  const { isDark } = useTheme();
+
   if (isLoading) return <Spinner />;
   if (error) return <Error errorMessage={error} />;
   if (cards && cards.length === 0)
     return (
       <Container>
-        <Typography>
+        <Typography color={isDark ? "#fff" : "#000"}>
           Oops... it seems there are no business cards to display
         </Typography>
       </Container>
