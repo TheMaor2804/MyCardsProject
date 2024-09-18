@@ -19,6 +19,7 @@ export default function AboutPage() {
           display: "flex",
           alignItems: "center",
           justifyContent: "space-between",
+          flexDirection: { xs: "column", md: "row" },
         }}
       >
         <Container sx={{ flex: 1, mr: 2 }}>
