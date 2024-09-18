@@ -35,7 +35,7 @@ Usage
         All the above user features
         Create and manage owned business cards
         View created business cards
-    Admins:
+    Admin Users:
     All registered user features
     Manage all business cards
 
