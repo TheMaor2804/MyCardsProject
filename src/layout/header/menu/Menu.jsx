@@ -33,12 +33,6 @@ const Menu = ({ isOpen, anchorEl, onClose }) => {
       <Box
         sx={{ display: "flex", flexDirection: "column" }}
       >
-        <MenuLink
-          text="about"
-          to={ROUTES.ABOUT}
-          onClick={onClose}
-          styles={{ display: { xs: "block", md: "none" } }}
-        />
 
         {!user && (
           <>
