@@ -25,7 +25,7 @@ export default function CardDetailsPage() {
   if (error) return <Error errorMessage={error} />;
 
   return (
-    <Container sx={{ mt: 4 }}>
+    <Container>
       <PageHeader
         title="Card Details"
         subtitle="Here you can find detailed information about the card"
