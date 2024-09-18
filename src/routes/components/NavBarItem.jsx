@@ -6,7 +6,10 @@ export default function NavBarItem({ to, sx, label, onClick = () => { } }) {
 
   return (
     <NavBarLink to={to} sx={sx}>
-      <Button color="inherit" onClick={() => onClick()}>
+      <Button color="inherit"
+        onClick={() => onClick()}
+        sx={{ textTransform: "none" }}
+      >
         <Typography>{label}</Typography>
       </Button>
     </NavBarLink>

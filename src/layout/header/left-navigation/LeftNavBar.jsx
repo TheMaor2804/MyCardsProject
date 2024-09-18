@@ -12,11 +12,18 @@ export default function LeftNavBar() {
   return (
     <Box>
       <LogoIcon />
-      <Logo />
-      <NavBarItem to={ROUTES.CARDS} label={"Cards"} />
-      <NavBarItem to={ROUTES.ABOUT} label={"About"} />
-      {user ? <NavBarItem to={ROUTES.FAV_CARDS} label={"My Favorites"} /> : null}
-      {user && user.isBusiness ? <NavBarItem to={ROUTES.MY_CARDS} label={"My Cards"} /> : null}
+      <Box
+        sx={{
+          display: { xs: "none", md: "inline-flex" },
+        }}
+      >
+
+        <Logo />
+        <NavBarItem to={ROUTES.CARDS} label={"Cards"} />
+        <NavBarItem to={ROUTES.ABOUT} label={"About"} />
+        {user ? <NavBarItem to={ROUTES.FAV_CARDS} label={"My Favorites"} /> : null}
+        {user && user.isBusiness ? <NavBarItem to={ROUTES.MY_CARDS} label={"My Cards"} /> : null}
+      </Box>
     </Box>
   );
 }
