@@ -16,7 +16,7 @@ export default function MyCardsPage() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (user && (user.isBusiness || user.isAdmin)) {
+    if (user && user.isBusiness) {
       getMyCards();
     }
     else navigate(ROUTES.CARDS);
