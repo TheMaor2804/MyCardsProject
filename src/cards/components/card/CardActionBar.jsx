@@ -15,6 +15,7 @@ export default function CardActionBar({
   likes,
   handleDelete,
   handleLike,
+  phone
 }) {
 
   const [isDialogOpen, setIsDialogOpen] = useState(false);
@@ -52,9 +53,11 @@ export default function CardActionBar({
         }
 
         <Box>
-          <IconButton>
-            <CallIcon />
-          </IconButton>
+          <a href={"tel:" + phone}>
+            <IconButton>
+              <CallIcon />
+            </IconButton>
+          </a>
           {user ? <IconButton onClick={() => {
             handleLike(cardId);
             setIsLiked((prev) => !prev);
