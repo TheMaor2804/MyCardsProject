@@ -10,7 +10,7 @@ export default function NavBarItem({ to, sx, label, onClick = () => { } }) {
         onClick={() => onClick()}
         sx={{ textTransform: "none" }}
       >
-        <Typography variant="h5">{label}</Typography>
+        <Typography variant="h6" fontWeight={400}>{label}</Typography>
       </Button>
     </NavBarLink>
   );
