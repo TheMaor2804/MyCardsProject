@@ -1,5 +1,5 @@
 import { useTheme } from "../../../providers/CustomThemeProvider";
-import { Box, IconButton } from "@mui/material";
+import { Box, IconButton, Tooltip } from "@mui/material";
 import React from "react";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
 import LightModeIcon from "@mui/icons-material/LightMode";
@@ -28,9 +28,11 @@ export default function RightNavbar() {
       >
 
         <SearchBar />
-        <IconButton sx={{ ml: 1 }} onClick={toggleDarkMode}>
-          {isDark ? <LightModeIcon /> : <DarkModeIcon />}
-        </IconButton>
+        <Tooltip title={isDark ? "Light Mode" : "Dark Mode"}>
+          <IconButton sx={{ ml: 1 }} onClick={toggleDarkMode}>
+            {isDark ? <LightModeIcon /> : <DarkModeIcon />}
+          </IconButton>
+        </Tooltip>
         <Box sx={
           {
             display: { xs: "none", md: "inline-flex" },
