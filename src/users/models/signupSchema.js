@@ -34,7 +34,7 @@ const signupSchema = {
   country: Joi.string().min(2).max(256).required(),
   city: Joi.string().min(2).max(256).required(),
   street: Joi.string().min(2).max(256).required(),
-  houseNumber: Joi.number().required(),
+  houseNumber: Joi.number().min(1).required(),
   zip: Joi.number(),
   isBusiness: Joi.boolean().required(),
 };
